@@ -3,39 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/17 19:33:08 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/11/18 20:12:04 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef FT_PRINTF_H
 # define FT_PIRNTF_H
 
+#include "../libft/libft.h"
 #include <stdarg.h>
 #include <unistd.h>
 #define ON 1
 #define OFF -1
-#define SPECIFIER "cspdiuxX%"
+#define SPECIFIERS "cspdiuxX%"
 typedef struct s_args
 {
-	//Flags
-	int		f_flag;
-	int		f_width;
-	int		f_precision;
-	int		f_type;
-
-	//Values
-	int		flag;
-	int		width;
-	int		precision;
-	int		type;
-
 	char 	*format;
 	va_list	arg_pointer;
 
-	int		printed_symb_cntr;
+	int		f_minus;
+	int		f_plus;
+	int		f_space;
+	int		f_zero;
+	int		f_hash;
+
+	int		f_width;
+	int		f_precision;
+	int		precision;
+	int		f_type;
+	int		length;
+
+	int		printed_symb;
+
+	int		i;
+	int		len;
+	int		file_descr;
 }				t_args;
+
+int	ft_printf(const char *format, ...);
+
+static t_args	*ft_init_struct(t_args *arg);
+
 
 # endif
