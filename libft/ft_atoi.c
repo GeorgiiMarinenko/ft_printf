@@ -3,57 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 01:49:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/11/10 16:47:27 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/11/24 18:19:49 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check_nonprintable(char str)
+static int		ft_isspace(int c)
 {
-	char	nonprintable[6];
-	int		i;
-
-	nonprintable[0] = ' ';
-	nonprintable[1] = '\t';
-	nonprintable[2] = '\n';
-	nonprintable[3] = '\v';
-	nonprintable[4] = '\r';
-	nonprintable[5] = '\f';
-	i = 0;
-	while (i < 6)
-	{
-		if (str == nonprintable[i])
-			return (1);
-		i++;
-	}
+	if (c == ' ' || c == '\t' || c == '\n')
+		return (1);
+	else if (c == '\v' || c == '\f' || c == '\r')
+		return (1);
 	return (0);
 }
 
-int			ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
-	int	nbr;
-	int	sign;
-	int	i;
+	size_t	i;
+	int		n;
+	int		result;
 
-	nbr = 0;
-	sign = 1;
 	i = 0;
-	while (check_nonprintable(str[i]))
+	n = 1;
+	result = 0;
+	while (ft_isspace(str[i]))
 		i++;
-	if ((str[i] == '+') || (str[i] == '-'))
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			sign = -1;
+		n = -1;
 		i++;
 	}
-	while ((str[i] >= '0') && (str[i] <= '9'))
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
-		nbr = nbr * 10 + (str[i] - '0');
+		result *= 10;
+		result += str[i] - 48;
 		i++;
 	}
-	return (nbr * sign);
+	return (result * n);
 }

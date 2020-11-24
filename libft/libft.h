@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:51:43 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/06 16:14:09 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/11/24 18:18:35 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ int					ft_memcmp(const void *arr1, const void *arr2,
 size_t				ft_strlen (const char *str);
 size_t				ft_strlcpy(char *dst, const char *src, size_t b_size);
 size_t				ft_strlcat(char *dst, const char *src, size_t b_size);
+int					ft_strcmp(const char *s1, const char *s2);
+char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strchr(const char *str, int ch);
 char				*ft_strrchr(const char *str, int ch);
 char				*ft_strnstr(const char *haystack,
 					const char *needle, size_t len);
 int					ft_strncmp(char *s1, char *s2, unsigned int n);
-int					ft_atoi(char *str);
+int					ft_atoi(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
