@@ -6,7 +6,7 @@
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/25 21:17:25 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/11/25 21:20:51 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ static int	ft_decimal_right2(intmax_t nbr, int n, t_args *f)
 	{
 		if (f->f_plus && f->f_width)
 			f->f_width--;
-		while (f->width)
+		while (f->f_width)
 		{
-			f->len += write(f->f_fd, " ", 1);
+			f->len += write(f->file_descr, " ", 1);
 			f->f_width--;
 		}
 		if (f->f_plus)
