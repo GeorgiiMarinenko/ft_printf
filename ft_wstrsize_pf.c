@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_wstrsize_pf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 01:49:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/11/25 16:42:45 by aarlena          ###   ########.fr       */
+/*   Created: 2020/11/25 14:22:26 by aarlena           #+#    #+#             */
+/*   Updated: 2020/11/25 14:22:49 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int		ft_atoi(const char *str)
+int		ft_wstrsize_pf(wchar_t *wstr)
 {
-	size_t	i;
-	int		n;
-	int		result;
+	int i;
+	int size;
 
 	i = 0;
-	n = 1;
-	result = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-')
+	size = 0;
+	while (wstr[i])
 	{
-		n = -1;
+		if (wstr[i] <= 127)
+			size += 1;
+		else if (wstr[i] >= 128 && wstr[i] <= 2047)
+			size += 2;
+		else if (wstr[i] >= 2048 && wstr[i] <= 65535)
+			size += 3;
+		else if (wstr[i] >= 65536 && wstr[i] <= 1114111)
+			size += 4;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	return (result * n);
+	return (size);
 }

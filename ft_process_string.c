@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process_string.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:38:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/11/24 18:02:11 by georgy           ###   ########.fr       */
+/*   Updated: 2020/11/25 14:18:32 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void		ft_print_type(const char *format, t_args *f, va_list ap)
 		ft_print_char(format[f->i], f, ap);
 	// else if (format[f->i] == 'r')
 	// 	ft_print_control_char(format[f->i], f, ap);
-	// else if (format[f->i] == 's' || format[f->i] == 'S')
-	// 	ft_print_string(format[f->i], f, ap);
+	else if (format[f->i] == 's' || format[f->i] == 'S')
+		ft_print_string(format[f->i], f, ap);
 	// else if (format[f->i] == '%')
 	// 	ft_print_percent_sign(format[f->i], f);
 }

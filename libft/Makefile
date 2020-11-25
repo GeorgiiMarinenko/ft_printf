@@ -33,7 +33,7 @@ SRCS =		ft_memset.c \
 			ft_strtrim.c \
 			ft_split.c \
 			ft_itoa.c \
-			ft_strmapi.c \
+			ft_strmapi.c
 
 SRCS_B =	ft_lstnew.c \
 			ft_lstadd_front.c \
@@ -43,7 +43,7 @@ SRCS_B =	ft_lstnew.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
-			ft_lstmap.c \
+			ft_lstmap.c
 
 
 CFLAGS = -Wall -Werror -Wextra

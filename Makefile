@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: georgy <georgy@student.42.fr>              +#+  +:+       +#+         #
+#    By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 17:06:31 by georgy            #+#    #+#              #
-#    Updated: 2020/11/24 18:13:08 by georgy           ###   ########.fr        #
+#    Updated: 2020/11/25 17:15:12 by aarlena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,11 @@ FT_PRINTF_SRC = ft_printf.c \
 				ft_process_string.c \
 				ft_parse_modifiers.c \
 				ft_print_char.c \
+				ft_print_string.c \
 				ft_reset_struct.c \
 				ft_putwchar_pf.c \
+				ft_wstrsize_pf.c \
+				ft_putwstr_pf.c \
 
 
 LIBFT_PATH = libft/
@@ -38,6 +41,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\nCreating $@"
+	make -C libft/
+	cp libft/libft.a .
+	mv libft.a libftprintf.a
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 

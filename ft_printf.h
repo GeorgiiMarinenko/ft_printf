@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/24 18:08:13 by georgy           ###   ########.fr       */
+/*   Updated: 2020/11/25 16:29:29 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,19 @@ typedef struct s_args
 }				t_args;
 
 int			ft_printf(const char *format, ...);
+
 t_args		*ft_init_struct(t_args *arg);
 void		ft_reset_struct(t_args *f);
+
 void		ft_process_string(const char *format, t_args *f, va_list ap);
 void		ft_parse_modifiers(const char *format, t_args *f, va_list ap);
+
 void		ft_print_char(char type, t_args *f, va_list ap);
+void		ft_print_string(char type, t_args *f, va_list ap);
+
 void		ft_putwchar_pf(wchar_t wc, t_args *f);
+int			ft_wstrsize_pf(wchar_t *wstr);
+void		ft_putwstr_pf(wchar_t *wstr, t_args *f, int max);
+void		ft_check_mb_cur_max(wchar_t *wstr, t_args *f);
 
 # endif
