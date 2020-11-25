@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_modifiers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:42:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/11/24 17:46:25 by georgy           ###   ########.fr       */
+/*   Updated: 2020/11/25 19:34:26 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ static void	ft_flags(const char *format, t_args *f)
 	while (ft_strchr("-+ 0#", format[f->i]))
 	{
 		if (format[f->i] == '-')
-			f->f_minus = 1;
+			f->f_minus = ON;
 		else if (format[f->i] == '+')
-			f->f_plus = 1;
+			f->f_plus = ON;
 		else if (format[f->i] == ' ')
-			f->f_space = 1;
+			f->f_space = ON;
 		else if (format[f->i] == '0')
-			f->f_zero = 1;
+			f->f_zero = ON;
 		else if (format[f->i] == '#')
-			f->f_hash = 1;
+			f->f_hash = ON;
 		f->i++;
 	}
 	if (f->f_plus)
-		f->f_space = 0;
+		f->f_space = OFF;
 }
 
 static void	ft_width(const char *format, t_args *f, va_list ap)

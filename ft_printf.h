@@ -6,7 +6,7 @@
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/25 16:29:29 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/11/25 19:02:28 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 # define HH 2
 # define L	3
 # define LL	4
-# define J	5
-# define Z	6
 
 typedef struct s_args
 {
