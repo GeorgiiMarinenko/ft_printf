@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/01 12:16:18 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:22:57 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	int n;
 
 	nbrlen = ft_signed_nbr_len(nbr, 10);
+	// printf("___NBR_LEN___%d", nbrlen);
 	n = (nbr < 0) ? 1 : 0;
 	nbr = (nbr < 0) ? -nbr : nbr;
 	if (ft_decimal_right2(nbr, n, f))
@@ -119,18 +120,8 @@ void		ft_print_decimal(char type, t_args *f, va_list ap)
 	(void)ap;
 	if (type == 'd' || type == 'i')
 	{
-		if (type == 'D')
-			nbr = va_arg(ap, long);
-		else if (!f->length)
-			nbr = va_arg(ap, int);
-		else if (f->length == HH)
-			nbr = (signed char)va_arg(ap, int);
-		else if (f->length == H)
-			nbr = (short)va_arg(ap, int);
-		else if (f->length == L)
-			nbr = va_arg(ap, long);
-		else if (f->length == LL)
-			nbr = va_arg(ap, long long);
+		nbr = va_arg(ap, int);
+		// printf("_____NBR____%jd\n", nbr);
 		if (f->f_minus)
 			ft_print_decimal_left_align(nbr, f);
 		else

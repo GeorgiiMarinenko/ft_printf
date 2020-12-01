@@ -6,12 +6,14 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/01 12:19:55 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/01 15:35:43 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+#include <stdio.h>
 
 # include "libft/libft.h"
 # include <stdarg.h>

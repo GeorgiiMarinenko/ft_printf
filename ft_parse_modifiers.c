@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_modifiers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:42:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/11/25 19:34:26 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/01 17:11:10 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void	ft_width(const char *format, t_args *f, va_list ap)
 			}
 		}
 	}
+	// printf("____WIDTH____: %d\n",f->f_width);
 }
 
 static void	ft_precision(const char *format, t_args *f, va_list ap)
@@ -66,7 +67,7 @@ static void	ft_precision(const char *format, t_args *f, va_list ap)
 	if (format[f->i] == '.')
 	{
 		f->i++;
-		f->f_precision = 1;
+		f->f_precision = ON;
 		if (ft_isdigit(format[f->i]))
 		{
 			f->precision = ft_atoi(&format[f->i]);
@@ -85,7 +86,7 @@ static void	ft_precision(const char *format, t_args *f, va_list ap)
 		}
 	}
 	if (f->f_hash && !f->f_minus)
-		f->f_space = 0;
+		f->f_space = OFF;
 }
 
 void		ft_parse_modifiers(const char *format, t_args *f, va_list ap)
@@ -93,5 +94,4 @@ void		ft_parse_modifiers(const char *format, t_args *f, va_list ap)
 	ft_flags(format, f);
 	ft_width(format, f, ap);
 	ft_precision(format, f, ap);
-	//ft_length(format, f);
 }
