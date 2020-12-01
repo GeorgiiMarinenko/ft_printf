@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_signed_nbr_len.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 01:49:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/01 11:57:49 by georgy           ###   ########.fr       */
+/*   Created: 2020/12/01 12:08:54 by georgy            #+#    #+#             */
+/*   Updated: 2020/12/01 12:08:56 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int		ft_atoi(const char *str)
+int		ft_signed_nbr_len(intmax_t value, int base)
 {
-	size_t	i;
-	int		n;
-	int		result;
+	int		i;
 
 	i = 0;
-	n = 1;
-	result = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-')
+	if (value == 0)
+		return (1);
+	if (value < -9223372036854775807)
+		return (20);
+	if (value < 0)
 	{
-		n = -1;
+		i++;
+		value *= -1;
+	}
+	while (value > 0)
+	{
+		value /= base;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	return (result * n);
+	return (i);
 }

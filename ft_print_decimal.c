@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_decimal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/25 21:20:51 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/01 12:16:18 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_printf.h"
 
 #include "ft_printf.h"
 
@@ -118,8 +116,21 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 void		ft_print_decimal(char type, t_args *f, va_list ap)
 {
 	intmax_t	nbr;
+	(void)ap;
 	if (type == 'd' || type == 'i')
 	{
+		if (type == 'D')
+			nbr = va_arg(ap, long);
+		else if (!f->length)
+			nbr = va_arg(ap, int);
+		else if (f->length == HH)
+			nbr = (signed char)va_arg(ap, int);
+		else if (f->length == H)
+			nbr = (short)va_arg(ap, int);
+		else if (f->length == L)
+			nbr = va_arg(ap, long);
+		else if (f->length == LL)
+			nbr = va_arg(ap, long long);
 		if (f->f_minus)
 			ft_print_decimal_left_align(nbr, f);
 		else

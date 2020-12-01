@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+         #
+#    By: georgy <georgy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 17:06:31 by georgy            #+#    #+#              #
-#    Updated: 2020/11/25 17:15:12 by aarlena          ###   ########.fr        #
+#    Updated: 2020/12/01 12:18:44 by georgy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,18 @@ FT_PRINTF_SRC = ft_printf.c \
 				ft_init_struct.c \
 				ft_process_string.c \
 				ft_parse_modifiers.c \
+				\
 				ft_print_char.c \
 				ft_print_string.c \
+				ft_print_decimal.c \
+				\
 				ft_reset_struct.c \
 				ft_putwchar_pf.c \
 				ft_wstrsize_pf.c \
 				ft_putwstr_pf.c \
+				ft_itoa_base_pf.c \
+				print_dec_padding.c \
+				ft_signed_nbr_len.c \
 
 
 LIBFT_PATH = libft/

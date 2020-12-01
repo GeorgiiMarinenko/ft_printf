@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/11/25 19:02:28 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/01 12:19:55 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,15 @@ void		ft_parse_modifiers(const char *format, t_args *f, va_list ap);
 
 void		ft_print_char(char type, t_args *f, va_list ap);
 void		ft_print_string(char type, t_args *f, va_list ap);
+void		ft_print_decimal(char type, t_args *f, va_list ap);
 
 void		ft_putwchar_pf(wchar_t wc, t_args *f);
 int			ft_wstrsize_pf(wchar_t *wstr);
 void		ft_putwstr_pf(wchar_t *wstr, t_args *f, int max);
 void		ft_check_mb_cur_max(wchar_t *wstr, t_args *f);
+int			ft_signed_nbr_len(intmax_t value, int base);
+int			ft_itoa_base_pf(int fd, intmax_t value, int base);
+void		ft_padding_left_align(int nbrlen, t_args *f);
+void		ft_padding_right_align(int nbrlen, int n, t_args *f);
 
 # endif
