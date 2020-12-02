@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/02 23:56:03 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/03 01:50:16 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,25 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 {
 	int nbrlen;
 	int n;
-
+	int	presision_cpy;
 	nbrlen = ft_signed_nbr_len(nbr, 10);
 	// printf("___NBR_LEN___%d", nbrlen);
 	n = (nbr < 0) ? 1 : 0;
 	nbr = (nbr < 0) ? -nbr : nbr;
 	if (ft_decimal_right2(nbr, n, f))
 		return ;
+	presision_cpy = f->precision;
+	f->precision = (nbrlen > f->precision) ? nbrlen : f->precision;
 	ft_padding_right_align(nbrlen, n, f);
 	if (!f->f_zero && n == 1)
 	{
 		f->len += write(f->file_descr, "-", 1);
 		nbrlen--;
 	}
+	f->precision = presision_cpy;
 	f->precision = (f->f_width > f->precision) ? f->f_width : f->precision;
+	// printf("___Precision___ %d\n",f->precision);
+	// printf("___Width___ %d\n",f->f_width);
 	while (nbrlen++ < f->precision)
 		f->len += write(f->file_descr, "0", 1);
 	f->len += ft_itoa_base_pf(f->file_descr, nbr, 10);
