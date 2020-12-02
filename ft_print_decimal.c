@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/01 17:22:57 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/02 23:56:03 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,8 @@ static int	ft_decimal_right2(intmax_t nbr, int n, t_args *f)
 			f->len += write(f->file_descr, " ", 1);
 			f->f_width--;
 		}
-		if (f->f_plus)
-			f->len += write(f->file_descr, "+", 1);
 		return (1);
 	}
-	if (f->f_space && n == 0 && !f->f_width)
-		f->len += write(f->file_descr, " ", 1);
-	if (f->f_plus && f->f_zero && n == 0)
-		f->len += write(f->file_descr, "+", 1);
 	if (n == 1 && f->f_zero)
 		f->len += write(f->file_descr, "-", 1);
 	return (0);
@@ -98,12 +92,8 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	nbr = (nbr < 0) ? -nbr : nbr;
 	if (ft_decimal_right2(nbr, n, f))
 		return ;
-	if (f->f_plus && n == 0 && f->f_width && !f->f_precision)
-		nbrlen++;
 	ft_padding_right_align(nbrlen, n, f);
-	if (!f->f_zero && f->f_plus && n == 0)
-		f->len += write(f->file_descr, "+", 1);
-	else if (!f->f_zero && n == 1)
+	if (!f->f_zero && n == 1)
 	{
 		f->len += write(f->file_descr, "-", 1);
 		nbrlen--;

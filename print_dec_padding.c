@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 12:11:54 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/01 18:24:02 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/03 00:33:24 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_padding_right_align(int nbrlen, int n, t_args *f)
 	}
 	else
 	{
+		// printf("____WIDTH____: %d\n",f->f_width);
+		// f->f_width -= 1;//? for nofit_fit
 		while (f->f_width-- > f->precision)
 		{
 			if ((f->f_zero && f->f_width != f->precision) || n == 1)

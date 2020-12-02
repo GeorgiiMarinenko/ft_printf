@@ -13,12 +13,22 @@ int    main(void)
 
     // ft_printf("ft_printf: %10.5d\n", -216);
     // printf("   printf: %10.5d\n\n", -216);
+    printf("printf: %+2d\n\n", 5);
 
     ft_printf("ft_printf: %8.3d\n", 8375);
     printf("   printf: %8.3d\n\n", 8375);
 
     ft_printf("ft_printf: %8.3d\n", -8473);
     printf("   printf: %8.3d\n\n", -8473);
+
+    ft_printf("%8.5d\n", 34);
+    printf("%8.5d\n\n", 34);
+
+    ft_printf("%10.5d\n", -216);
+    printf("%10.5d\n\n", -216);
+
+    ft_printf("%8.5d\n", 0);
+    printf("%8.5d\n\n", 0);
 
     // ft_printf("%+09d\n", 42);
     // ft_printf("%#b\n", 256);

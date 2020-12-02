@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:38:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/01 15:37:36 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/02 23:17:44 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static void		ft_print_type(const char *format, t_args *f, va_list ap)
 {
+	if (format[f->i] == 'c')
+		ft_print_char(format[f->i], f, ap);
+	else if (format[f->i] == 's')
+		ft_print_string(format[f->i], f, ap);
 	if (format[f->i] == 'd' || format[f->i] == 'i')
 		ft_print_decimal(format[f->i], f, ap);
 	// else if (format[f->i] == 'o' || format[f->i] == 'O')
@@ -26,12 +30,8 @@ static void		ft_print_type(const char *format, t_args *f, va_list ap)
 	// 	ft_print_pointer(format[f->i], f, ap);
 	// else if (format[f->i] == 'b')
 	// 	ft_print_binary(format[f->i], f, ap);
-	if (format[f->i] == 'c')
-		ft_print_char(format[f->i], f, ap);
 	// else if (format[f->i] == 'r')
 	// 	ft_print_control_char(format[f->i], f, ap);
-	else if (format[f->i] == 's')
-		ft_print_string(format[f->i], f, ap);
 	// else if (format[f->i] == '%')
 	// 	ft_print_percent_sign(format[f->i], f);
 }
@@ -43,9 +43,9 @@ void			ft_process_string(const char *format, t_args *f, va_list ap)
 		if (format[f->i] == '%')
 		{
 			f->i++;
-			if (ft_strchr("#-+ .*0123456789hl", format[f->i]))
+			if (ft_strchr(FLAGS, format[f->i]))
 				ft_parse_modifiers(format, f, ap);
-			if (ft_strchr("scpdiouUxXbr%", format[f->i]))
+			if (ft_strchr(SPECIFIERS, format[f->i]))
 			{
 				ft_print_type(format, f, ap);
 				if (f->len == -1)
