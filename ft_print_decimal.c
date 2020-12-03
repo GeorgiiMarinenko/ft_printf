@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/03 01:50:16 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 00:12:43 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	ft_decimal_right2(intmax_t nbr, int n, t_args *f)
 		}
 		return (1);
 	}
-	if (n == 1 && f->f_zero)
+	if (n == 1 && f->f_zero && !f->f_precision)
 		f->len += write(f->file_descr, "-", 1);
 	return (0);
 }
@@ -87,7 +87,6 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	int n;
 	int	presision_cpy;
 	nbrlen = ft_signed_nbr_len(nbr, 10);
-	// printf("___NBR_LEN___%d", nbrlen);
 	n = (nbr < 0) ? 1 : 0;
 	nbr = (nbr < 0) ? -nbr : nbr;
 	if (ft_decimal_right2(nbr, n, f))
@@ -95,6 +94,8 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	presision_cpy = f->precision;
 	f->precision = (nbrlen > f->precision) ? nbrlen : f->precision;
 	ft_padding_right_align(nbrlen, n, f);
+	if (n == 1 && f->f_zero && f->f_precision)
+		f->len += write(f->file_descr, "-", 1);
 	if (!f->f_zero && n == 1)
 	{
 		f->len += write(f->file_descr, "-", 1);
@@ -102,8 +103,11 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	}
 	f->precision = presision_cpy;
 	f->precision = (f->f_width > f->precision) ? f->f_width : f->precision;
-	// printf("___Precision___ %d\n",f->precision);
-	// printf("___Width___ %d\n",f->f_width);
+	if (f->f_zero && f->f_width && f->f_precision && n == 1)
+	{
+		while (nbrlen++ < f->precision+1)
+		f->len += write(f->file_descr, "0", 1);
+	}
 	while (nbrlen++ < f->precision)
 		f->len += write(f->file_descr, "0", 1);
 	f->len += ft_itoa_base_pf(f->file_descr, nbr, 10);
@@ -116,7 +120,6 @@ void		ft_print_decimal(char type, t_args *f, va_list ap)
 	if (type == 'd' || type == 'i')
 	{
 		nbr = va_arg(ap, int);
-		// printf("_____NBR____%jd\n", nbr);
 		if (f->f_minus)
 			ft_print_decimal_left_align(nbr, f);
 		else
