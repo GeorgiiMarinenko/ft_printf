@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:42:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/03 00:25:17 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:11:10 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 
 static void	ft_flags(const char *format, t_args *f)
 {
-	while (ft_strchr("-0", format[f->i]))
+	while (ft_strchr("-+ 0#", format[f->i]))
 	{
 		if (format[f->i] == '-')
 			f->f_minus = ON;
+		else if (format[f->i] == '+')
+			f->f_plus = ON;
+		else if (format[f->i] == ' ')
+			f->f_space = ON;
 		else if (format[f->i] == '0')
 			f->f_zero = ON;
+		else if (format[f->i] == '#')
+			f->f_hash = ON;
 		f->i++;
 	}
+	if (f->f_plus)
+		f->f_space = OFF;
 }
 
 static void	ft_width(const char *format, t_args *f, va_list ap)
@@ -40,13 +48,13 @@ static void	ft_width(const char *format, t_args *f, va_list ap)
 		while (ft_isdigit(format[f->i]))
 		{
 			f->i++;
-			// if (format[f->i] == '*')
-			// {
-			// 	f->f_width = va_arg(ap, int);
-			// 	f->f_width = (f->f_width < 0) ? -f->f_width : f->f_width;
-			// 	while (format[f->i] == '*')
-			// 		f->i++;
-			// }
+			if (format[f->i] == '*')
+			{
+				f->f_width = va_arg(ap, int);
+				f->f_width = (f->f_width < 0) ? -f->f_width : f->f_width;
+				while (format[f->i] == '*')
+					f->i++;
+			}
 		}
 	}
 	// printf("____WIDTH____: %d\n",f->f_width);
@@ -77,6 +85,8 @@ static void	ft_precision(const char *format, t_args *f, va_list ap)
 				f->i++;
 		}
 	}
+	if (f->f_hash && !f->f_minus)
+		f->f_space = OFF;
 }
 
 void		ft_parse_modifiers(const char *format, t_args *f, va_list ap)

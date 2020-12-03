@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/04 00:12:43 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 00:44:07 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,8 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	ft_padding_right_align(nbrlen, n, f);
 	if (n == 1 && f->f_zero && f->f_precision)
 		f->len += write(f->file_descr, "-", 1);
-	if (!f->f_zero && n == 1)
-	{
+	if (!f->f_zero && n == 1 && nbrlen--)
 		f->len += write(f->file_descr, "-", 1);
-		nbrlen--;
-	}
 	f->precision = presision_cpy;
 	f->precision = (f->f_width > f->precision) ? f->f_width : f->precision;
 	if (f->f_zero && f->f_width && f->f_precision && n == 1)
@@ -116,7 +113,6 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 void		ft_print_decimal(char type, t_args *f, va_list ap)
 {
 	intmax_t	nbr;
-	(void)ap;
 	if (type == 'd' || type == 'i')
 	{
 		nbr = va_arg(ap, int);

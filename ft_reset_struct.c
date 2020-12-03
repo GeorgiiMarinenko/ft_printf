@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:39:47 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/03 00:44:50 by georgy           ###   ########.fr       */
+/*   Updated: 2020/11/24 17:41:03 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void		ft_reset_struct(t_args *f)
 {
-	f->f_minus = OFF;
-	f->f_plus = OFF;
-	f->f_space = OFF;
-	f->f_zero = OFF;
-	f->f_hash = OFF;
-	f->f_width = OFF;
-	f->f_precision = OFF;
-	f->f_precision = OFF;
-	f->length = OFF;
+	f->f_minus = 0;
+	f->f_plus = 0;
+	f->f_space = 0;
+	f->f_zero = 0;
+	f->f_hash = 0;
+	f->f_width = 0;
+	f->f_precision = 0;
+	f->f_precision = 0;
+	f->length = 0;
 }

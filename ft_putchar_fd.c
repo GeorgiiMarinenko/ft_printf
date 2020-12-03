@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struct.c                                   :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 17:34:51 by georgy            #+#    #+#             */
-/*   Updated: 2020/11/24 17:57:48 by georgy           ###   ########.fr       */
+/*   Created: 2020/10/31 23:05:53 by georgy            #+#    #+#             */
+/*   Updated: 2020/10/31 23:18:36 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_args	*ft_init_struct(t_args *arg)
+void	ft_putchar_fd(char symb, int fd)
 {
-	if ((arg = (t_args*)ft_calloc(1, sizeof(t_args))) == NULL)
-		return (NULL);
-	arg->i = 0;
-	arg->len = 0;
-	return (arg);
+	write(fd, &symb, 1);
 }

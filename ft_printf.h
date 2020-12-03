@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/03 14:33:38 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 01:22:12 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@
 #define ON 1
 #define OFF -1
 #define SPECIFIERS "cspdiuxX%"
-#define FLAGS "-0.*0123456789"
+
+# define H	1
+# define HH 2
+# define L	3
+# define LL	4
 
 typedef struct s_args
 {
