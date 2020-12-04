@@ -63,6 +63,28 @@ int    main(void)
     printf("u_prec_width_ff_pos_zp\n");
     ft_printf("ft_printf %08.5u\n", 34);
     printf("   printf %08.5u\n\n", 34);
+
+    printf("\n________HEXICAL_________\n");
+
+    printf("x_prec_width_nofit_fit_pos\n");
+    ft_printf("ft_printf %8.3x\n", 8375);
+    printf("   printf %8.3x\n\n", 8375);
+
+    printf("x_prec_width_fit_fit_zero\n");
+    ft_printf("ft_printf %8.5x\n", 0);
+    printf("   printf %8.5x\n\n", 0);
+
+    printf("x_prec_width_ff_pos_zp\n");
+    ft_printf("ft_printf %08.5x\n", 34);
+    printf("   printf %08.5x\n\n", 34);
+
+    printf("x_prec_width_ff_zero_zp\n");
+    ft_printf("ft_printf %08.5x\n", 0);
+    printf("   printf %08.5x\n\n", 0);
+
+    printf("x_prec_width_nf_pos_zp\n");
+    ft_printf("ft_printf %08.3x\n", 8375);
+    printf("   printf %08.3x\n\n", 8375);
     // ft_printf("%+09d\n", 42);
     // ft_printf("%#b\n", 256);
     // ft_printf("%#o\n", 1039);
