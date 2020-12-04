@@ -6,7 +6,7 @@
 #    By: georgy <georgy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 17:06:31 by georgy            #+#    #+#              #
-#    Updated: 2020/12/04 16:16:42 by georgy           ###   ########.fr        #
+#    Updated: 2020/12/04 23:29:44 by georgy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ FT_PRINTF_SRC = ft_printf.c \
 				ft_print_string.c \
 				ft_print_decimal.c \
 				ft_print_insigned_decimal.c \
+				ft_print_hexical.c \
 				\
 				ft_reset_struct.c \
 				ft_putwchar_pf.c \

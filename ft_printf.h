@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/04 16:16:30 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 23:29:29 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void		ft_print_char(char type, t_args *f, va_list ap);
 void		ft_print_string(char type, t_args *f, va_list ap);
 void		ft_print_decimal(char type, t_args *f, va_list ap);
 void		ft_print_unsigned_decimal(char type, t_args *f, va_list ap);
+void		ft_print_hex(char type, t_args *f, va_list ap);
 
 void		ft_putwchar_pf(wchar_t wc, t_args *f);
 int			ft_wstrsize_pf(wchar_t *wstr);

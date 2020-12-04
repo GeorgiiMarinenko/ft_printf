@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:38:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/04 16:07:33 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 23:30:25 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void		ft_print_type(const char *format, t_args *f, va_list ap)
 		ft_print_decimal(format[f->i], f, ap);
 	else if (format[f->i] == 'u')
 		ft_print_unsigned_decimal(format[f->i], f, ap);
-	// else if (format[f->i] == 'x' || format[f->i] == 'X')
-	// 	ft_print_hex(format[f->i], f, ap);
+	else if (format[f->i] == 'x' || format[f->i] == 'X')
+		ft_print_hex(format[f->i], f, ap);
 	// else if (format[f->i] == 'p')
 	// 	ft_print_pointer(format[f->i], f, ap);
 	// else if (format[f->i] == '%')
