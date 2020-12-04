@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:38:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/01 15:37:36 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 16:07:33 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,27 @@
 
 static void		ft_print_type(const char *format, t_args *f, va_list ap)
 {
-	if (format[f->i] == 'd' || format[f->i] == 'i')
+	if (format[f->i] == 'c')
+		ft_print_char(format[f->i], f, ap);
+	else if (format[f->i] == 's')
+		ft_print_string(format[f->i], f, ap);
+	else if (format[f->i] == 'd' || format[f->i] == 'i')
 		ft_print_decimal(format[f->i], f, ap);
-	// else if (format[f->i] == 'o' || format[f->i] == 'O')
-	// 	ft_print_octal(format[f->i], f, ap);
-	// else if (format[f->i] == 'u' || format[f->i] == 'U')
-	// 	ft_print_unsigned_decimal(format[f->i], f, ap);
+	else if (format[f->i] == 'u')
+		ft_print_unsigned_decimal(format[f->i], f, ap);
 	// else if (format[f->i] == 'x' || format[f->i] == 'X')
 	// 	ft_print_hex(format[f->i], f, ap);
 	// else if (format[f->i] == 'p')
 	// 	ft_print_pointer(format[f->i], f, ap);
-	// else if (format[f->i] == 'b')
-	// 	ft_print_binary(format[f->i], f, ap);
-	if (format[f->i] == 'c')
-		ft_print_char(format[f->i], f, ap);
-	// else if (format[f->i] == 'r')
-	// 	ft_print_control_char(format[f->i], f, ap);
-	else if (format[f->i] == 's')
-		ft_print_string(format[f->i], f, ap);
 	// else if (format[f->i] == '%')
 	// 	ft_print_percent_sign(format[f->i], f);
+
+	// else if (format[f->i] == 'o' || format[f->i] == 'O')
+	// 	ft_print_octal(format[f->i], f, ap);
+	// else if (format[f->i] == 'b')
+	// 	ft_print_binary(format[f->i], f, ap);
+	// else if (format[f->i] == 'r')
+	// 	ft_print_control_char(format[f->i], f, ap);
 }
 
 void			ft_process_string(const char *format, t_args *f, va_list ap)

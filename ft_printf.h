@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/04 01:22:12 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 16:16:30 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,16 @@ void		ft_parse_modifiers(const char *format, t_args *f, va_list ap);
 void		ft_print_char(char type, t_args *f, va_list ap);
 void		ft_print_string(char type, t_args *f, va_list ap);
 void		ft_print_decimal(char type, t_args *f, va_list ap);
+void		ft_print_unsigned_decimal(char type, t_args *f, va_list ap);
 
 void		ft_putwchar_pf(wchar_t wc, t_args *f);
 int			ft_wstrsize_pf(wchar_t *wstr);
 void		ft_putwstr_pf(wchar_t *wstr, t_args *f, int max);
 void		ft_check_mb_cur_max(wchar_t *wstr, t_args *f);
 int			ft_signed_nbr_len(intmax_t value, int base);
+int			ft_unsigned_nbr_len(uintmax_t value, int base);
 int			ft_itoa_base_pf(int fd, intmax_t value, int base);
+int			ft_uitoa_base_pf(int fd, uintmax_t value, int base, char x);
 void		ft_padding_left_align(int nbrlen, t_args *f);
 void		ft_padding_right_align(int nbrlen, int n, t_args *f);
 
