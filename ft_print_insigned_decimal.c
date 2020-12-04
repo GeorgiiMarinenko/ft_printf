@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 16:08:49 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/04 16:12:36 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/04 17:04:08 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ static void	ft_padding(int nbrlen, t_args *f)
 		}
 	else
 	{
-		if (f->f_plus || f->f_zero)
+		if (f->f_zero)
 			f->f_width--;
-		if (f->precision > nbrlen)
+		f->precision = (f->precision < nbrlen) ? nbrlen : f->precision;
+		if (f->precision >= nbrlen)
 			while (f->f_width-- > f->precision)
 			{
 				if (f->f_zero)

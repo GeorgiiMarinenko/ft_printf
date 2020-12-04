@@ -52,6 +52,13 @@ int    main(void)
     printf("d_prec_width_ff_zero_zp\n");
     ft_printf("ft_printf %08.5d\n", 0);
     printf("   printf %08.5d\n\n", 0);
+
+    ft_printf("\ncheking sega: %3.30d\n\n", -256);
+
+    printf("\n________UNSIGNED INT_________\n");
+
+    ft_printf("ft_printf %8.3u\n", 8375);
+    printf("   printf %8.3u\n\n", 8375);
     // ft_printf("%+09d\n", 42);
     // ft_printf("%#b\n", 256);
     // ft_printf("%#o\n", 1039);
