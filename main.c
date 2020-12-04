@@ -59,6 +59,10 @@ int    main(void)
 
     ft_printf("ft_printf %8.3u\n", 8375);
     printf("   printf %8.3u\n\n", 8375);
+
+    printf("u_prec_width_ff_pos_zp\n");
+    ft_printf("ft_printf %08.5u\n", 34);
+    printf("   printf %08.5u\n\n", 34);
     // ft_printf("%+09d\n", 42);
     // ft_printf("%#b\n", 256);
     // ft_printf("%#o\n", 1039);
