@@ -6,6 +6,19 @@ int    main(void)
 {
     int i;
 
+    static char	a01;
+    static unsigned char a02;
+    static short a03;
+    static unsigned short a04;
+    static int a05;
+    static unsigned int a06;
+    static long a07;
+    static unsigned long a08;
+    static long long a09;
+    static unsigned long long a10;
+    static char *a11;
+    static void *a12;
+
     // setlocale(LC_ALL, "");
     // ft_printf("Hello World!\n");
     // // ft_printf("%s", "This is ");
@@ -85,6 +98,43 @@ int    main(void)
     printf("x_prec_width_nf_pos_zp\n");
     ft_printf("ft_printf %08.3x\n", 8375);
     printf("   printf %08.3x\n\n", 8375);
+
+    printf("\n________POINTER_________\n");
+
+    printf("\np_basic\n");
+    ft_printf("ft_printf %p%p%p%p%p%p%p%p%p%p%p%p\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+    printf("   printf %p%p%p%p%p%p%p%p%p%p%p%p\n\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+
+    // printf("\np_width_nofit\n");
+    // ft_printf("ft_printf %70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+    // printf("   printf %70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p\n\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+
+    // printf("\np_width_nofit\n");
+    // ft_printf("ft_printf %5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+    // printf("   printf %5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p\n\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+
+    // printf("\np_width_16\n");
+    // ft_printf("ft_printf %16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+    // printf("   printf %16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p\n\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+
+    // printf("\np_width_8\n");
+    // ft_printf("ft_printf %8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+    // printf("   printf %8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p\n\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);
+
+    ft_printf("%5.p\n", NULL);
+    printf("%5.p\n\n", NULL);
+
+    ft_printf("%15p\n", NULL);
+    printf("%15p\n\n", NULL);
+
+    // ft_printf("%.48d", 100);
+
+    // ft_printf("-->|%-16.p|<-- \n", NULL);
+    // printf("-->|%-16.p|<-- \n\n", NULL);
+
+    // ft_printf("-->|%-16.p|<-- \n", NULL);
+    // printf("-->|%-16.p|<-- \n\n", NULL);
+
     // ft_printf("%+09d\n", 42);
     // ft_printf("%#b\n", 256);
     // ft_printf("%#o\n", 1039);

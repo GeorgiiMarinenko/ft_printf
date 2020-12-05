@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/05 00:22:15 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/05 17:15:13 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void		ft_print_string(char type, t_args *f, va_list ap);
 void		ft_print_decimal(char type, t_args *f, va_list ap);
 void		ft_print_unsigned_decimal(char type, t_args *f, va_list ap);
 void		ft_print_hex(char type, t_args *f, va_list ap);
+void		ft_print_pointer(char type, t_args *f, va_list ap);
 
 void		ft_putwchar_pf(wchar_t wc, t_args *f);
 int			ft_wstrsize_pf(wchar_t *wstr);

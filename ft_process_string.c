@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process_string.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:38:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/05 00:27:46 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/05 17:13:04 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void		ft_print_type(const char *format, t_args *f, va_list ap)
 		ft_print_unsigned_decimal(format[f->i], f, ap);
 	else if (format[f->i] == 'x' || format[f->i] == 'X')
 		ft_print_hex(format[f->i], f, ap);
-	// else if (format[f->i] == 'p')
-	// 	ft_print_pointer(format[f->i], f, ap);
+	else if (format[f->i] == 'p')
+		ft_print_pointer(format[f->i], f, ap);
 	// else if (format[f->i] == '%')
 	// 	ft_print_percent_sign(format[f->i], f);
 }
