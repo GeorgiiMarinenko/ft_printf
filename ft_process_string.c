@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:38:13 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/04 23:30:25 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/05 00:27:46 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ static void		ft_print_type(const char *format, t_args *f, va_list ap)
 	// 	ft_print_pointer(format[f->i], f, ap);
 	// else if (format[f->i] == '%')
 	// 	ft_print_percent_sign(format[f->i], f);
-
-	// else if (format[f->i] == 'o' || format[f->i] == 'O')
-	// 	ft_print_octal(format[f->i], f, ap);
-	// else if (format[f->i] == 'b')
-	// 	ft_print_binary(format[f->i], f, ap);
-	// else if (format[f->i] == 'r')
-	// 	ft_print_control_char(format[f->i], f, ap);
 }
 
 void			ft_process_string(const char *format, t_args *f, va_list ap)

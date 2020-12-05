@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/04 23:29:29 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/05 00:22:15 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,8 @@
 # include <unistd.h>
 # include <wchar.h>
 #define ON 1
-#define OFF -1
+#define OFF 0
 #define SPECIFIERS "cspdiuxX%"
-
-# define H	1
-# define HH 2
-# define L	3
-# define LL	4
 
 typedef struct s_args
 {
@@ -44,8 +39,6 @@ typedef struct s_args
 	int		precision;
 	int		f_type;
 	int		length;
-
-	int		printed_symb;
 
 	int		i;
 	int		len;
