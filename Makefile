@@ -6,7 +6,7 @@
 #    By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 17:06:31 by georgy            #+#    #+#              #
-#    Updated: 2020/12/05 17:27:24 by aarlena          ###   ########.fr        #
+#    Updated: 2020/12/05 19:24:38 by aarlena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ FT_PRINTF_SRC = ft_printf.c \
 				ft_print_insigned_decimal.c \
 				ft_print_hexical.c \
 				ft_print_pointer.c \
+				ft_print_percent.c \
 				\
 				ft_reset_struct.c \
 				ft_putwchar_pf.c \

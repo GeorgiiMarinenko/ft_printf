@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_print_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 17:47:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/05 19:19:48 by aarlena          ###   ########.fr       */
+/*   Created: 2020/12/05 18:58:40 by aarlena           #+#    #+#             */
+/*   Updated: 2020/12/05 19:26:45 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_print_char_left_align(unsigned char c, t_args *f)
+static void	ft_print_percent_sign_left_align(t_args *f)
 {
-	f->len += write(f->file_descr, &c, 1);
+	f->len += write(f->file_descr, "%", 1);
 	while (f->f_width > 1)
 	{
 		f->len += write(f->file_descr, " ", 1);
@@ -22,7 +22,7 @@ static void	ft_print_char_left_align(unsigned char c, t_args *f)
 	}
 }
 
-static void	ft_print_char_right_align(unsigned char c, t_args *f)
+static void	ft_print_percent_sign_right_align(t_args *f)
 {
 	while (f->f_width > 1)
 	{
@@ -32,19 +32,16 @@ static void	ft_print_char_right_align(unsigned char c, t_args *f)
 			f->len += write(f->file_descr, " ", 1);
 		f->f_width--;
 	}
-	f->len += write(f->file_descr, &c, 1);
+	f->len += write(f->file_descr, "%", 1);
 }
 
-void		ft_print_char(char type, t_args *f, va_list ap)
+void		ft_print_percent(char type, t_args *f)
 {
-	unsigned char	c;
-
-	if (type == 'c')
+	if (type == '%')
 	{
-		c = (unsigned char)va_arg(ap, int);
 		if (f->f_minus)
-			ft_print_char_left_align(c, f);
+			ft_print_percent_sign_left_align(f);
 		else
-			ft_print_char_right_align(c, f);
+			ft_print_percent_sign_right_align(f);
 	}
 }
