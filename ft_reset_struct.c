@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reset_struct.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:39:47 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/05 00:25:41 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/06 17:12:06 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void		ft_reset_struct(t_args *f)
 	f->f_hash = OFF;
 	f->f_width = OFF;
 	f->f_precision = OFF;
-	f->f_precision = OFF;
+	f->precision = OFF;
+	f->precision_cpy = OFF;
 }

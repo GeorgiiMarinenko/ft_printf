@@ -135,17 +135,17 @@ int    main(void)
     // ft_printf("-->|%-16.p|<-- \n", NULL);
     // printf("-->|%-16.p|<-- \n\n", NULL);
 
-    ft_printf("%20.5d\n", -1024);
-    printf("%20.5d\n\n", -1024);
+    // ft_printf("%20.5d\n", -1024);
+    // printf("%20.5d\n\n", -1024);
 
-    ft_printf("%20.5i\n", -1024);
-    printf("%20.5i\n\n", -1024);
+    // ft_printf("%20.5i\n", -1024);
+    // printf("%20.5i\n\n", -1024);
 
-    ft_printf("%020.5d\n", -1024);
-    printf("%020.5d\n\n", -1024);
+    // ft_printf("%020.5d\n", -1024);
+    // printf("%020.5d\n\n", -1024);
 
-    ft_printf("%020.5i\n", -1024);
-    printf("%020.5i\n\n", -1024);
+    // ft_printf("%020.5i\n", -1024);
+    // printf("%020.5i\n\n", -1024);
 
     // ft_printf("%+09d\n", 42);
     // ft_printf("%#b\n", 256);
@@ -155,5 +155,8 @@ int    main(void)
     // ft_printf("%C %C %C\n", L'ä', L'ö', L'ü');
 	// ft_printf("%c", 'q');
     // pause();
+
+    ft_printf("<<%-103.21d%*p>>\n" ,-1119242596,-94,(void*)17541392615378030860lu);
+    printf("<<%-103.21d%*p>>\n\n" ,-1119242596,-94,(void*)17541392615378030860lu);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:42:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/05 17:12:49 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/06 17:23:32 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	ft_width(const char *format, t_args *f, va_list ap)
 	if (format[f->i] == '*')
 	{
 		f->f_width = va_arg(ap, int);
-		f->f_minus = (f->f_width < 0) ? 1 : f->f_minus;
+		f->f_minus = (f->f_width < 0) ? ON : f->f_minus;
 		f->f_width = (f->f_width < 0) ? -f->f_width : f->f_width;
 		while (format[f->i] == '*')
 			f->i++;
@@ -84,6 +84,12 @@ static void	ft_precision(const char *format, t_args *f, va_list ap)
 			while (format[f->i] == '*')
 				f->i++;
 		}
+	}
+	else
+	{
+		f->f_precision = OFF;
+		f->precision = OFF;
+		f->precision_cpy = OFF;
 	}
 	if (f->f_hash && !f->f_minus)
 		f->f_space = OFF;
