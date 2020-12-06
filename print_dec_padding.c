@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_dec_padding.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 12:11:54 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/05 21:08:39 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/06 03:32:17 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	ft_padding_right_align(int nbrlen, int n, t_args *f)
 	}
 	else
 	{
+		// printf("prec = %d; nbrlen = %d\n",f->precision, nbrlen);
+		// if (f->f_zero && f->f_width > f->f_precision && f->f_precision && f->precision == nbrlen)
+		// 	f->f_width -= 1;
 		while (f->f_width-- > f->precision)
 		{
 			if ((f->f_zero && f->f_width != f->precision) || n == 1)

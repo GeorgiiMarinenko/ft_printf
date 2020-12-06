@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 17:12:28 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/05 18:35:25 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/06 03:10:35 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	ft_print_pointer_right_align(uintmax_t nbr, t_args *f)
 	f->len += ft_uitoa_base_pf(f->file_descr, nbr, 16, 0);
 }
 
-void	ft_print_pointer(char type, t_args *f, va_list ap)
+void		ft_print_pointer(char type, t_args *f, va_list ap)
 {
 	uintmax_t	nbr;
 

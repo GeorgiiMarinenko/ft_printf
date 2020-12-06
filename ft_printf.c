@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 14:41:39 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/01 15:39:29 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/06 03:07:32 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_printf(const char *format, ...)
 	else if (!ft_strchr(format, '%'))
 		arg->len += write(arg->file_descr, format, ft_strlen(format));
 	else
-		ft_process_string(format, arg, ap);//Обработка строки
+		ft_process_string(format, arg, ap);
 	len = arg->len;
 	free(arg);
 	va_end(ap);
