@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_decimal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/06 03:43:48 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/06 16:34:27 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,23 +85,20 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 {
 	int nbrlen;
 	int n;
-	int	presision_cpy;
+
 	nbrlen = ft_signed_nbr_len(nbr, 10);
 	n = (nbr < 0) ? 1 : 0;
 	nbr = (nbr < 0) ? -nbr : nbr;
 	if (ft_decimal_right2(nbr, n, f))
 		return ;
-	presision_cpy = f->precision;
-	// printf("prec = %d, nbrlen = %d\n", f->precision, nbrlen);
-	// f->f_width = (n == 1 && nbrlen-1 < f->precision && f->f_zero && f->f_width && f->f_precision) ? f->f_width-1 : f->f_width;
-	// printf("prec = %d, nbrlen = %d\n", f->precision, nbrlen);
+	f->precision_cpy = f->precision;
 	f->precision = (nbrlen > f->precision) ? nbrlen : f->precision;
 	ft_padding_right_align(nbrlen, n, f);
 	if (n == 1 && f->f_zero && f->f_precision)
 		f->len += write(f->file_descr, "-", 1);
 	if (!f->f_zero && n == 1 && nbrlen--)
 		f->len += write(f->file_descr, "-", 1);
-	f->precision = presision_cpy;
+	f->precision = f->precision_cpy;
 	f->precision = (f->f_width > f->precision) ? f->f_width : f->precision;
 	if (f->f_zero && f->f_width && f->f_precision && n == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/05 19:25:52 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/06 16:29:20 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_args
 	int		f_width;
 	int		f_precision;
 	int		precision;
+	int		precision_cpy;
 	int		f_type;
 	int		length;
 

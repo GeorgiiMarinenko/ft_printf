@@ -6,7 +6,7 @@
 #    By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 17:06:31 by georgy            #+#    #+#              #
-#    Updated: 2020/12/05 19:24:38 by aarlena          ###   ########.fr        #
+#    Updated: 2020/12/06 16:04:03 by aarlena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ OBJ += $(FT_PRINTF_SRC:.c=.o)
 OBJ += $(addprefix $(LIBFT_PATH),$(LIBFT_SRC:.c=.o))
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -ggdb3 -Wall -Werror -Wextra
 
 CLEAR_LINE = \033[2K\c
 
