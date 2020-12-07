@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:42:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/07 22:12:51 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/07 22:33:12 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,8 @@ static void	ft_precision(const char *format, t_args *f, va_list ap)
 		else if (format[f->i] == '*')
 		{
 			precision = va_arg(ap, int);
-			if (precision >= 0)
-				f->precision = precision;
-			else
-				f->f_precision = 0;
+			f->precision = (precision >= 0) ? precision : OFF;
+			f->f_precision = (precision < 0) ? OFF : ON;
 			while (format[f->i] == '*')
 				f->i++;
 		}
