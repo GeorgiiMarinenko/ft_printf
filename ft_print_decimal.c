@@ -6,7 +6,7 @@
 /*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/07 22:19:42 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/07 22:38:23 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	if (f->f_zero && f->f_width && f->f_precision && n == 1)
 	{
 		while (nbrlen++ < f->precision + 1)
-		f->len += write(f->file_descr, "0", 1);
+			f->len += write(f->file_descr, "0", 1);
 	}
 	while (nbrlen++ < f->precision)
 		f->len += write(f->file_descr, "0", 1);
