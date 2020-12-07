@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_modifiers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:42:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/06 17:23:32 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/07 22:12:51 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static void	ft_width(const char *format, t_args *f, va_list ap)
 			}
 		}
 	}
-	// printf("____WIDTH____: %d\n",f->f_width);
 }
 
 static void	ft_precision(const char *format, t_args *f, va_list ap)
@@ -86,11 +85,7 @@ static void	ft_precision(const char *format, t_args *f, va_list ap)
 		}
 	}
 	else
-	{
-		f->f_precision = OFF;
-		f->precision = OFF;
-		f->precision_cpy = OFF;
-	}
+		ft_clean_percision(f);
 	if (f->f_hash && !f->f_minus)
 		f->f_space = OFF;
 }

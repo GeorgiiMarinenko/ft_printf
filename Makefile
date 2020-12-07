@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+         #
+#    By: georgy <georgy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 17:06:31 by georgy            #+#    #+#              #
-#    Updated: 2020/12/06 16:04:03 by aarlena          ###   ########.fr        #
+#    Updated: 2020/12/07 22:12:33 by georgy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ FT_PRINTF_SRC = ft_printf.c \
 				print_dec_padding.c \
 				ft_signed_nbr_len.c \
 				ft_unsigned_nbr_len.c \
+				ft_precision_tools.c \
+				ft_clean_precision.c \
 
 
 LIBFT_PATH = libft/

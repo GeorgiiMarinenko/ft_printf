@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:14:36 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/06 16:29:20 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/07 22:12:25 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,8 @@ int			ft_itoa_base_pf(int fd, intmax_t value, int base);
 int			ft_uitoa_base_pf(int fd, uintmax_t value, int base, char x);
 void		ft_padding_left_align(int nbrlen, t_args *f);
 void		ft_padding_right_align(int nbrlen, int n, t_args *f);
+void		ft_condition_1(t_args *f,int nbrlen);
+void		ft_condition_2(t_args *f);
+void		ft_clean_percision(t_args *f);
 
 # endif

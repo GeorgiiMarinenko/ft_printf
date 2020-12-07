@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_decimal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/06 16:34:27 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/07 22:13:59 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,16 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	nbr = (nbr < 0) ? -nbr : nbr;
 	if (ft_decimal_right2(nbr, n, f))
 		return ;
-	f->precision_cpy = f->precision;
-	f->precision = (nbrlen > f->precision) ? nbrlen : f->precision;
+	ft_condition_1(f, nbrlen);
 	ft_padding_right_align(nbrlen, n, f);
 	if (n == 1 && f->f_zero && f->f_precision)
 		f->len += write(f->file_descr, "-", 1);
 	if (!f->f_zero && n == 1 && nbrlen--)
 		f->len += write(f->file_descr, "-", 1);
-	f->precision = f->precision_cpy;
-	f->precision = (f->f_width > f->precision) ? f->f_width : f->precision;
+	ft_condition_2(f);
 	if (f->f_zero && f->f_width && f->f_precision && n == 1)
 	{
-		while (nbrlen++ < f->precision+1)
+		while (nbrlen++ < f->precision + 1)
 		f->len += write(f->file_descr, "0", 1);
 	}
 	while (nbrlen++ < f->precision)
@@ -113,6 +111,7 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 void		ft_print_decimal(char type, t_args *f, va_list ap)
 {
 	intmax_t	nbr;
+
 	if (type == 'd' || type == 'i')
 	{
 		nbr = va_arg(ap, int);
