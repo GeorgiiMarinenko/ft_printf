@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_decimal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:07:15 by aarlena           #+#    #+#             */
-/*   Updated: 2020/12/07 22:38:23 by georgy           ###   ########.fr       */
+/*   Updated: 2020/12/08 18:20:45 by aarlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static void	ft_print_decimal_right_align(intmax_t nbr, t_args *f)
 	if (!f->f_zero && n == 1 && nbrlen--)
 		f->len += write(f->file_descr, "-", 1);
 	ft_condition_2(f);
-	if (f->f_zero && f->f_width && f->f_precision && n == 1)
+	if (f->f_zero && f->f_precision && n == 1)
 	{
 		while (nbrlen++ < f->precision + 1)
 			f->len += write(f->file_descr, "0", 1);

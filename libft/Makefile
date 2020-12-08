@@ -52,7 +52,7 @@ HEADER = libft.h
 OBJS = $(SRCS:.c=.o)
 OBJS_B = $(SRCS_B:.c=.o)
 
-CC = gcc
+CC = gcc -g
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER)
