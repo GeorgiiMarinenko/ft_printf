@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_dec_padding.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 12:11:54 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/08 18:44:04 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/09 13:25:46 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_padding_right_align(int nbrlen, int n, t_args *f, int repits)
 			f->f_width -= 1;
 		f->f_width = (f->precision > nbrlen &&
 		!repits++ && n == 1) ? f->f_width - 1 : f->f_width;
-		while (f->f_width--> f->precision)
+		while (f->f_width-- > f->precision)
 			f->len += write(f->file_descr, " ", 1);
 	}
 }

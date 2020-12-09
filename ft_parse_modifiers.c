@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_modifiers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarlena <aarlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: georgy <georgy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:42:14 by georgy            #+#    #+#             */
-/*   Updated: 2020/12/08 18:23:36 by aarlena          ###   ########.fr       */
+/*   Updated: 2020/12/09 13:19:09 by georgy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,10 @@ static void	ft_flags(const char *format, t_args *f)
 	{
 		if (format[f->i] == '-')
 			f->f_minus = ON;
-		else if (format[f->i] == '+')
-			f->f_plus = ON;
-		else if (format[f->i] == ' ')
-			f->f_space = ON;
 		else if (format[f->i] == '0')
 			f->f_zero = ON;
-		else if (format[f->i] == '#')
-			f->f_hash = ON;
 		f->i++;
 	}
-	if (f->f_plus)
-		f->f_space = OFF;
 }
 
 static void	ft_width(const char *format, t_args *f, va_list ap)
@@ -84,8 +76,6 @@ static void	ft_precision(const char *format, t_args *f, va_list ap)
 	}
 	else
 		ft_clean_percision(f);
-	if (f->f_hash && !f->f_minus)
-		f->f_space = OFF;
 }
 
 void		ft_parse_modifiers(const char *format, t_args *f, va_list ap)
